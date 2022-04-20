@@ -5,7 +5,7 @@ class hueLight {
     bri;
     hue;
 
-    constructor(preset=null,sat=null,bri=null,hue=null) {
+    constructor(preset,sat=null,bri=null,hue=null) {
         this.sat = sat;
         this.bri = bri;
         this.hue = hue;
@@ -25,7 +25,7 @@ class hueLight {
 
 let scenes = {
     "Default" : {
-        1 : new hueLight(preset=dwhite)
+        1 : new hueLight(dwhite)
     }
 }
 
