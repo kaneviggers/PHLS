@@ -98,7 +98,7 @@ var chooseScene = (scene) => {
 
 let scenes = {
     "Default" : [
-        new hueLight(1, "defaultWarm")
+        new hueLight(1, "pink")
     ]
 }
 
