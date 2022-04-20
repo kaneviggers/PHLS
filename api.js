@@ -1,17 +1,5 @@
 const axios = require('axios');
 
-class student {
-    gender;
-    age;
-    yearGroup;
-
-    constructor(gender, age, yearGroup) {
-      this.gender = gender;
-      this.age = age;
-      this.yearGroup = yearGroup;
-    }
-}
-
 class hueLight {
     sat;
     bri;
@@ -53,9 +41,3 @@ try {
 } catch (err) {
     console.error(err);
 }
-
-let kane = new student("male",16,12);
-let lily = new student("female",15,12)
-
-console.log(kane);
-console.log(lily);
