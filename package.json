@@ -1,0 +1,22 @@
+{
+  "name": "huelightsystem",
+  "version": "1.0.0",
+  "description": "package for room lights",
+  "main": "api.js",
+  "scripts": {
+    "start": "nodemon api.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Proxfam/HueLightSystem.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Proxfam/HueLightSystem/issues"
+  },
+  "homepage": "https://github.com/Proxfam/HueLightSystem#readme",
+  "dependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
