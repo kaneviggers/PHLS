@@ -1,29 +1,33 @@
 const axios = require('axios');
 
+const URL = "http://192.168.1.80/api/VZbaIYHIkNqgInHul20P6Ju2j62XO3jxlrApA4hZ";
+
 class hueLight {
+    id;
     preset;
     sat;
     bri;
     hue;
 
-    constructor(preset,sat=null,bri=null,hue=null) {
+    constructor(id,preset,sat=null,bri=null,hue=null) {
+        this.id = id;
         this.preset = preset;
         this.sat = sat;
         this.bri = bri;
         this.hue = hue;
 
         switch(preset) {
-            case "default_white":
+            case "defaultWhite":
                 this.sat = 0,
                 this.bri = 255,
                 this.hue = 0
                 break
-            case "default_warm":
+            case "defaultWarm":
                 this.sat = 175,
                 this.bri = 255,
                 this.hue = 8000
                 break
-            case "default_cold":
+            case "defaultCold":
                 this.sat = 100,
                 this.bri = 255,
                 this.hue = 43000
@@ -77,23 +81,25 @@ class hueLight {
     }
 }
 
-let scenes = {
-    "Default" : {
-        1 : new hueLight("teal")
+var chooseScene = (scene) => {
+    for (light in scenes[scene]) {
+        try{
+            axios.put(URL + `/lights/${scenes[scene][light].id}/state`, {
+                on: true,
+                sat: scenes[scene][light].sat,
+                bri: scenes[scene][light].bri,
+                hue: scenes[scene][light].hue,
+            });
+        } catch(err) {
+            console.error(err);
+        }
     }
 }
 
-console.log(scenes.Default[1]);
-
-url = `http://192.168.1.80/api/VZbaIYHIkNqgInHul20P6Ju2j62XO3jxlrApA4hZ/lights/1/state`;
-try {
-    axios.put(url, {
-        on: true,
-        sat: scenes.Default[1].sat,
-        bri: scenes.Default[1].bri,
-        hue: scenes.Default[1].hue,
-
-    });
-} catch (err) {
-    console.error(err);
+let scenes = {
+    "Default" : [
+        new hueLight(1, "defaultWarm")
+    ]
 }
+
+chooseScene("Default");
