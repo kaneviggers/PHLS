@@ -42,6 +42,11 @@ class hueLight {
                 this.bri = 255,
                 this.hue = 5000
                 break
+            case "brown":
+                this.sat = 255,
+                this.bri = 105,
+                this.hue = 7500
+                break
             case "yellow":
                 this.sat = 255,
                 this.bri = 255,
@@ -98,7 +103,7 @@ var chooseScene = (scene) => {
 
 let scenes = {
     "Default" : [
-        new hueLight(1, "green")
+        new hueLight(1, "brown")
     ]
 }
 
