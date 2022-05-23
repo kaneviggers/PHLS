@@ -79,7 +79,7 @@ class hueLight {
                 break
         }
     }
-},
+}
 
 var chooseScene = (scene) => {
     for (light in scenes[scene]) {
@@ -98,7 +98,7 @@ var chooseScene = (scene) => {
 
 let scenes = {
     "Default" : [
-        new hueLight(1, "pink")
+        new hueLight(1, "red")
     ]
 }
 

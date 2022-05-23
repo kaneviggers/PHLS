@@ -80,7 +80,7 @@ class hueLight {
                 break
         }
     }
-},
+}
 
 var chooseScene = (scene) => {
     for (light in scenes[scene]) {
