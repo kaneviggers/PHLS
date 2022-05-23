@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const URL = "http://192.168.1.66/api/VZbaIYHIkNqgInHul20P6Ju2j62XO3jxlrApA4hZ";
+const URL = "http://192.168.68.142/api/AWNVabbtaLISOqHQ9MAbfB2YmACgfMHINUMcBI4U";
 
 class hueLight {
     id;
@@ -81,16 +81,15 @@ class hueLight {
     }
 }
 
-var chooseScene = async (scene) => {
+var chooseScene = (scene) => {
     for (light in scenes[scene]) {
         try{
-            var res = await axios.put(URL + `/lights/${scenes[scene][light].id}/state`, {
+            axios.put(URL + `/lights/${scenes[scene][light].id}/state`, {
                 on: true,
                 sat: scenes[scene][light].sat,
                 bri: scenes[scene][light].bri,
                 hue: scenes[scene][light].hue,
             });
-            console.log(res.data);
         } catch(err) {
             console.error(err);
         }
@@ -99,7 +98,7 @@ var chooseScene = async (scene) => {
 
 let scenes = {
     "Default" : [
-        new hueLight(1, "pink")
+        new hueLight(1, "red")
     ]
 }
 
