@@ -1,4 +1,3 @@
-/*
 const axios = require('axios');
 
 const URL = "http://192.168.1.66/api/VZbaIYHIkNqgInHul20P6Ju2j62XO3jxlrApA4hZ";
@@ -105,4 +104,3 @@ let scenes = {
 }
 
 chooseScene("Default");
-*/

@@ -4,7 +4,8 @@
   "description": "package for room lights",
   "main": "api.js",
   "scripts": {
-    "start": "nodemon api.js"
+    "startCam": "nodemon api-cam.js",
+    "startKane": "nodemon api-kane.js"
   },
   "repository": {
     "type": "git",
