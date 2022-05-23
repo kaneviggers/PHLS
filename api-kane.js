@@ -1,3 +1,4 @@
+/*
 const axios = require('axios');
 
 const URL = "http://192.168.1.80/api/VZbaIYHIkNqgInHul20P6Ju2j62XO3jxlrApA4hZ";
@@ -79,7 +80,7 @@ class hueLight {
                 break
         }
     }
-}
+},
 
 var chooseScene = (scene) => {
     for (light in scenes[scene]) {
@@ -103,3 +104,4 @@ let scenes = {
 }
 
 chooseScene("Default");
+*/
