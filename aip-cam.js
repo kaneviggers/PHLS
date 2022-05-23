@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const URL = "http://192.168.1.80/api/VZbaIYHIkNqgInHul20P6Ju2j62XO3jxlrApA4hZ";
+const URL = "http://192.168.68.142/api/aanvHhN9H5jpXndNWoEGmM8QfB-lIOgbgog7-2vt";
 
 class hueLight {
     id;
