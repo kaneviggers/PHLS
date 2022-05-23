@@ -90,7 +90,7 @@ var chooseScene = (scene) => {
     for (light in scenes[scene]) {
         try{
             axios.put(URL + `/lights/${scenes[scene][light].id}/state`, {
-                on: true,
+                on: false,
                 sat: scenes[scene][light].sat,
                 bri: scenes[scene][light].bri,
                 hue: scenes[scene][light].hue,
@@ -107,4 +107,4 @@ let scenes = {
     ]
 }
 
-chooseScene("Default");
+chooseScene("DefaultWhite");
