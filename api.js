@@ -2,12 +2,12 @@ const axios = require('axios');
 
 const user = 'cam' // CHANGE THIS CONSTANT TO YOUR NAME TO USE YOUR ID AND USERNAME
 
-
 if (user == 'cam') {
     var URL = "http://192.168.68.142/api/AWNVabbtaLISOqHQ9MAbfB2YmACgfMHINUMcBI4U";
 } else if (user == 'kane') {
     var URL = "http://192.168.1.66/api/VZbaIYHIkNqgInHul20P6Ju2j62XO3jxlrApA4hZ";
 }
+
 
 class hueLight {
     id;
@@ -23,14 +23,12 @@ class hueLight {
         this.bri = bri;
         this.hue = hue;
 
-        console.log(typeof(preset));
 
-        console.log(preset);
-
+        console.log(preset); //debug, remove later
+        //color library, every color has a name and a number value.
         switch(preset) {
             case 1:
             case "defaultWhite":
-                console.log('cock');
                 this.sat = 0,
                 this.bri = 255,
                 this.hue = 0,
@@ -118,13 +116,13 @@ class hueLight {
 }
 
 var chooseScene = (scene) => {
-    for (light in scenes[scene]) {
+    for (lightID in scenes[scene]) {
         try{
-            axios.put(URL + `/lights/${scenes[scene][light].id}/state`, {
+            axios.put(URL + `/lights/${scenes[scene][lightID].id}/state`, {
                 on: true,
-                sat: scenes[scene][light].sat,
-                bri: scenes[scene][light].bri,
-                hue: scenes[scene][light].hue,
+                sat: scenes[scene][lightID].sat,
+                bri: scenes[scene][lightID].bri,
+                hue: scenes[scene][lightID].hue,
             });
         } catch(err) {
             console.error(err);
@@ -133,9 +131,7 @@ var chooseScene = (scene) => {
 }
 
 let scenes = {
-    "Default" : [
-        new hueLight(1, 8)
-    ]
+    "Default" : [new hueLight(1, 'green')]
 }
 
 function disco() {
@@ -150,20 +146,17 @@ function disco() {
 
 }
 
-/*function candleLight() {
-    var randColor = Math.round(Math.random() * 100) + 1
-    var setDiscoColor = new hueLight(1,randColor);
-    axios.put(URL + `/lights/${setDiscoColor.id}/state`, {
-        on: true,
-        sat: setDiscoColor.sat,
-        bri: setDiscoColor.bri,
-        hue: setDiscoColor.hue,
-    });
+function candleLight () {
+    //get color values of current color
+    //set loop
+        //get random value between 1 and 100
+        //apply random value to chosen color brightness
+}
 
-}*/
-setInterval(disco, 500);
 
-//chooseScene("Default");
+//setInterval(disco, 1000);
+
+chooseScene("Default");
 
 //setInterval(candleLight, 1000)
 
