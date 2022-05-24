@@ -4,7 +4,7 @@
   "description": "package for room lights",
   "main": "api.js",
   "scripts": {
-    "start": "nodemon api.js",
+    "start": "nodemon api.js"
   },
   "repository": {
     "type": "git",

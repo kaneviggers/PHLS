@@ -116,6 +116,10 @@ var chooseScene = (scene) => {
     }
 }
 
+function disco () {
+
+}
+
 let scenes = {
     "Default" : [
         new hueLight(1, "red")
