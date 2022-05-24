@@ -10,14 +10,12 @@ if (user == 'cam') {
 
 
 class hueLight {
-    id;
     preset;
     sat;
     bri;
     hue;
 
-    constructor(id,preset,sat=null,bri=null,hue=null) {
-        this.id = id;
+    constructor(preset,sat=null,bri=null,hue=null) {
         this.preset = preset;
         this.sat = sat;
         this.bri = bri;
@@ -115,7 +113,7 @@ class hueLight {
     }
 }
 
-var chooseScene = (scene) => {
+/*var chooseScene = (scene) => {
     for (lightID in scenes[scene]) {
         try{
             axios.put(URL + `/lights/${scenes[scene][lightID].id}/state`, {
@@ -129,12 +127,12 @@ var chooseScene = (scene) => {
         }
     }
 }
+*/
+/*let scenes = {
+    "Default" : [new hueLight('green')]
+}*/
 
-let scenes = {
-    "Default" : [new hueLight(1, 'green')]
-}
-
-function disco() {
+/*function disco() {
     var randColor = Math.round(Math.random() * 11) + 1
     var setDiscoColor = new hueLight(1,randColor);
     axios.put(URL + `/lights/${setDiscoColor.id}/state`, {
@@ -144,20 +142,32 @@ function disco() {
         hue: setDiscoColor.hue,
     });
 
+}*/
+function disco() {
+    var randColor = Math.round(Math.random() * 11) + 1
+    var setDiscoColor = new hueLight(randColor);
+    setLightState(1, true, randColor);
 }
 
-function candleLight () {
-    //get color values of current color
-    //set loop
-        //get random value between 1 and 100
-        //apply random value to chosen color brightness
+ 
+function setLightState(lightId, onOff, color) {
+    try {
+        axios.put(`${URL}/lights/${lightId}/state`, { 
+            on: onOff, 
+            sat: color.sat, 
+            bri: color.bri,
+            hue: color.hue
+        });
+    } catch (err) {
+        console.error(err)
+    }
+    console.log(color);  //debug
+
 }
 
+//setLightState(1, true, new hueLight('pink'))
+setInterval(disco, 1000)
+    
 
-//setInterval(disco, 1000);
-
-chooseScene("Default");
-
-//setInterval(candleLight, 1000)
 
 
