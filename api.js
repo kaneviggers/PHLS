@@ -150,7 +150,7 @@ function disco() {
 
 }
 
-/*function candleLight() {                                                  working on this
+/*function candleLight() {
     var randColor = Math.round(Math.random() * 100) + 1
     var setDiscoColor = new hueLight(1,randColor);
     axios.put(URL + `/lights/${setDiscoColor.id}/state`, {
@@ -160,11 +160,11 @@ function disco() {
         hue: setDiscoColor.hue,
     });
 
-}
-//setInterval(disco, 100);
+}*/
+setInterval(disco, 500);
 
 //chooseScene("Default");
 
-setInterval(candleLight, 1000)
+//setInterval(candleLight, 1000)
 
 
