@@ -166,7 +166,7 @@ function setLightState(lightId, onOff, color) {
 }
 
 //setLightState(1, true, new hueLight('pink'))
-setInterval(disco, 1000)
+setInterval(disco, 500)
     
 
 
