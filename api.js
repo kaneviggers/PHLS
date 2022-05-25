@@ -1,5 +1,5 @@
 const axios = require('axios');
-
+var globalReferenceNumber = 0
 const user = 'cam' // CHANGE THIS CONSTANT TO YOUR NAME TO USE YOUR ID AND USERNAME
 
 if (user == 'cam') {
@@ -112,24 +112,14 @@ class hueLight {
         }
     }
 }
-2
-function disco() { //more info about this function in README.md
-
-    var randColor = Math.round(Math.random() * 11) + 1
-    var redo = true
-    while (redo == true){ 
-        try {
-            if (referenceColor == randColor) {
-                var randColor = Math.round(Math.random() * 11) + 1
-            } else{
-                setLightState(1, true, new hueLight(randColor));
-                var referenceColor = randColor
-            }
-        } catch (error) {
-            referenceColor = 0
-            
+function disco(reference) { //more info about this function in README.md
+    let randColor = Math.round(Math.random() * 12) 
+    if (randColor == reference) {
+        while (randColor == reference){
+            randColor = Math.round(Math.random() * 12) 
         }
-    }       
+    }
+    setLightState(1, true, new hueLight(randColor));
 }
 
 
@@ -153,7 +143,16 @@ function setLightState(lightId, onOff, color) {  //more info about this function
 
 
 //setLightState(1, true, new hueLight('orange'))
-setInterval(disco, 1000)
+while (true) {
+    reference = 0
+    setInterval (disco, 500, reference)
+}
+
+
+
+
+
+
     
 
 
