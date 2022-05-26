@@ -117,7 +117,7 @@ let prevDiscoNum = 0;
 function disco() {
   let randColor = Math.round(Math.random() * 12) //choose a number between 0 and 12 
   while (randColor == prevDiscoNum) { //if the chosen number is the same as prevNum, choose another random number
-    randColor = Math.round(Math.random() * 12)
+    randColor = Math.round(Math.random() * 11)
   }
   setLightState(1, true, new hueLight(randColor))
 
