@@ -112,10 +112,18 @@ class hueLight {
         }
     }
 }
-function disco() { //more info about this function in README.md
-    let randColor = Math.round(Math.random() * 12) 
-    setLightState(1, true, new hueLight(randColor));
+let prevDiscoNum = 0;
+
+function disco() {
+  let randColor = Math.round(Math.random() * 12) //choose a number between 0 and 12 
+  while (randColor == prevDiscoNum) { //if the chosen number is the same as prevNum, choose another random number
+    randColor = Math.round(Math.random() * 12)
+  }
+  setLightState(1, true, new hueLight(randColor))
+
+  prevDiscoNum = randColor //save the current value
 }
+
 
 
 
@@ -136,7 +144,6 @@ function setLightState(lightId, onOff, color) {  //more info about this function
 function nothing(){
 
 }
-//setLightState(1, true, new hueLight('orange'))
-reference = 0
-setInterval(disco, 1000) 
+
+let interval = setInterval(disco, 1000)
     
