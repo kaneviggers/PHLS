@@ -141,9 +141,6 @@ function setLightState(lightId, onOff, color) {  //more info about this function
     console.log(color);  //debug
 
 }
-function nothing(){
-
-}
 
 let interval = setInterval(disco, 1000)
     
