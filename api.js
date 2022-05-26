@@ -142,5 +142,5 @@ function setLightState(lightId, onOff, color) {  //more info about this function
 
 }
 
-let interval = setInterval(disco, 1000)
+setInterval(disco, 500)
     
