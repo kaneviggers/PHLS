@@ -112,15 +112,11 @@ class hueLight {
         }
     }
 }
-function disco(reference) { //more info about this function in README.md
+function disco() { //more info about this function in README.md
     let randColor = Math.round(Math.random() * 12) 
-    if (randColor == reference) {
-        while (randColor == reference){
-            randColor = Math.round(Math.random() * 12) 
-        }
-    }
     setLightState(1, true, new hueLight(randColor));
 }
+
 
 
 function setLightState(lightId, onOff, color) {  //more info about this function in README.md
@@ -137,23 +133,10 @@ function setLightState(lightId, onOff, color) {  //more info about this function
     console.log(color);  //debug
 
 }
+function nothing(){
 
-
-
-
-
-//setLightState(1, true, new hueLight('orange'))
-while (true) {
-    reference = 0
-    setInterval (disco, 500, reference)
 }
-
-
-
-
-
-
+//setLightState(1, true, new hueLight('orange'))
+reference = 0
+setInterval(disco, 1000) 
     
-
-
-
