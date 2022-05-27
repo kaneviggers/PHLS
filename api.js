@@ -113,25 +113,46 @@ class hueLight {
     }
 }
 
-let prevDiscoNum = 0;
-function disco() {
-  let randColor = Math.round(Math.random() * 11) //choose a number between 0 and 12 
-  while (randColor == prevDiscoNum) { //if the chosen number is the same as prevNum, choose another random number
-    randColor = Math.round(Math.random() * 11)
+let prevNum = 0;
+let lightID = 1
+function randInt(shortRangeEnd, longRangeEnd) {
+    let randNum = Math.round(Math.random() * longRangeEnd) + shortRangeEnd//choose a number between a given range
+    while (randNum == prevNum) { //if the chosen number is the same as prevDiscoNum, choose another random number
+        randNum = Math.round(Math.random() * longRangeEnd) + shortRangeEnd
   }
-  setLightState(1, true, new hueLight(randColor))
-
-  prevDiscoNum = randColor //save the current value
+    prevNum = randNum //save the current value
+    return(randNum)
 }
 
 
+function disco() {
+    let randColor = randInt(0, 11) // get random number
+    setLightState(lightID, true, new hueLight(randColor))
+}
 
 
-function setLightState(lightId, onOff, color) {  //more info about this function in README.md
+function candleLight(lightID, color) {
+    let candleLightValue = randInt(100, 200) //get random number
     try {
-        axios.put(`${URL}/lights/${lightId}/state`, { 
-            on: onOff, 
-            sat: color.sat, 
+        axios.put(`${URL}/lights/${lightId}/state`, { //send HTTP req
+            on: true, //set on/off state
+            sat: color.sat,
+            bri: candleLightValue, //set brightness    
+            hue: color.hue
+        });
+    } catch (err) {
+        console.error(err)
+    }
+    console.log(candleLightValue)
+     
+}
+
+
+function setLightState(lightId, onOff, color) {  // learn how to use on README.md
+    try {
+        axios.put(`${URL}/lights/${lightId}/state`, { //send HTTP req
+            on: onOff, //set on/off state
+            sat: color.sat, //set saturation, brightness, and hue
             bri: color.bri,    
             hue: color.hue
         });
@@ -142,5 +163,5 @@ function setLightState(lightId, onOff, color) {  //more info about this function
 
 }
 
-setInterval(disco, 800)
-    
+//setInterval(disco, 800)
+    setInterval(candleLight, 1000, lightID, new hueLight('green')  )

@@ -22,3 +22,5 @@ Very cool Philips Hue Light System PHLS
     disco()
     disco makes a specified light  display a random color. 
     in unison with setInteval(), disco() can make a light flash random colors for a disco effect.
+    example : setInterval (disco, timeInterval)
+    same colors do not appear twice in a row.
