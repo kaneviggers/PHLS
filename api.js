@@ -114,16 +114,17 @@ class hueLight {
 }
 
 let prevNum = 0
-let lightID = 1
-function randInt(shortRangeEnd, longRangeEnd) {
-    let randNum = Math.round(Math.random() * longRangeEnd) + shortRangeEnd//choose a number between a given range
+function randInt(max, min) {
+    let randNum = Math.round(Math.random() * (max - min))+ min//choose a number between a given range
+    
     while (randNum == prevNum) { //if the chosen number is the same as prevDiscoNum, choose another random number
-        randNum = Math.round(Math.random() * longRangeEnd) + shortRangeEnd
+        randNum = Math.round(Math.random() * (max-min) + min)
   }
     prevNum = randNum //save the current value
+    
     return(randNum)
 }
-
+Math.max
 
 function disco() {
     let randColor = randInt(0, 11) // get random number
@@ -133,6 +134,10 @@ function disco() {
 
 function candleLight(lightId, color) {
     let candleLightValue = randInt(100, 200) //get random number
+    while (candleLightValue > (prevNum + 25) && candleLightValue < (prevNum - 25)) {
+        console.log('test')
+        candleLightValue = randInt(100, 200)
+    }
     try {
         axios.put(`${URL}/lights/${lightId}/state`, { //send HTTP req
             on: true, //set on/off state
@@ -143,7 +148,7 @@ function candleLight(lightId, color) {
     } catch (err) {
         console.error(err)
     }
-    console.log(candleLightValue)
+    console.log(candleLightValue) //debug
      
 }
 
@@ -164,4 +169,5 @@ function setLightState(lightId, onOff, color) {  // learn how to use on README.m
 }
 
 //setInterval(disco, 800)
-    setInterval(candleLight, 200, 1, new hueLight('orange')  )
+setInterval(candleLight, 200, 1, new hueLight('orange'))
+
