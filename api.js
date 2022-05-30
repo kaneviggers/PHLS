@@ -168,6 +168,6 @@ function setLightState(lightId, onOff, color) {  // learn how to use on README.m
 
 }
 
-setInterval(disco, 200)
+setInterval(disco, 1764)
 //setInterval(candleLight, 200, 1, new hueLight('orange'))
 
