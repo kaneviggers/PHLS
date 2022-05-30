@@ -1,6 +1,6 @@
 const axios = require('axios');
 var globalReferenceNumber = 0
-const user = 'kane' // CHANGE THIS CONSTANT TO YOUR NAME TO USE YOUR ID AND USERNAME
+const user = 'cam' // CHANGE THIS CONSTANT TO YOUR NAME TO USE YOUR ID AND USERNAME
 
 if (user == 'cam') {
     var URL = "http://192.168.68.142/api/AWNVabbtaLISOqHQ9MAbfB2YmACgfMHINUMcBI4U";
@@ -168,6 +168,6 @@ function setLightState(lightId, onOff, color) {  // learn how to use on README.m
 
 }
 
-setInterval(disco, 20)
+setInterval(disco, 200)
 //setInterval(candleLight, 200, 1, new hueLight('orange'))
 
