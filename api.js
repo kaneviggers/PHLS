@@ -3,7 +3,7 @@ var globalReferenceNumber = 0
 const user = 'cam' // CHANGE THIS CONSTANT TO YOUR NAME TO USE YOUR ID AND USERNAME
 
 if (user == 'cam') {
-    var URL = "http://192.168.68.142/api/AWNVabbtaLISOqHQ9MAbfB2YmACgfMHINUMcBI4U";
+    var URL = "http://192.168.68.120/api/AWNVabbtaLISOqHQ9MAbfB2YmACgfMHINUMcBI4U";
 } else if (user == 'kane') {
     var URL = "http://192.168.1.66/api/VZbaIYHIkNqgInHul20P6Ju2j62XO3jxlrApA4hZ";
 }
@@ -121,10 +121,11 @@ function randInt(max, min) {
         randNum = Math.round(Math.random() * (max-min) + min)
   }
     prevNum = randNum //save the current value
+    return randNum
     
-    return(randNum)
+
 }
-Math.max
+
 
 function disco() {
     let randColor = randInt(0, 11) // get random number
@@ -168,6 +169,5 @@ function setLightState(lightId, onOff, color) {  // learn how to use on README.m
 
 }
 
-setInterval(disco, 1764)
+setInterval(disco, 720)
 //setInterval(candleLight, 200, 1, new hueLight('orange'))
-
